@@ -1,0 +1,655 @@
+
+$f-size-small: 0.75rem;
+// COLOURS
+$yellow: #ebb300;
+$red: #F50B00;
+$grey: #888888;
+$f-family: 'Lato', sans-serif;
+$border-radius: 2px;
+
+// SPECIFIC CLIENT VARIABLES
+$toyota: #eb0a1e;
+
+// BODY LAYOUT
+html,
+body,
+#root,
+.app-wrapper {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  &.bgd {
+    background: url('../../assets/imgs/bgd-myadbox-3.jpg') no-repeat 50% 50% fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    &::after {
+      content: '';
+      background-color: rgba(0, 0, 0, 0.65);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &--default {
+      //background: url(../../assets/imgs/bgd-myadbox.jpg) no-repeat 50% 50% fixed;
+    }
+    &--toyota {
+      //background-image: url(../../assets/imgs/bgd-toyota.jpg);
+    }
+  }
+}
+
+.branding-myadbox {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 3;
+  .logo {
+    height: 62px;
+  }
+  @media screen and (min-width: 992px) {
+    top: 2rem;
+    left: 2rem;
+    position: fixed;
+    .logo {
+      height: 120px;
+    }
+  }
+}
+
+.cube-grid {
+  display: none;
+  @media screen and (min-width: 992px) {
+    display: block;
+    position: fixed;
+    right: 0px;
+    bottom: -112px;
+    right: -170px;
+    width: 720px;
+    height: 513px;
+    z-index: 3;
+  }
+}
+
+.app-wrapper {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  z-index: 2;
+  //background-color: rgba(0, 0, 0, 0.6);
+}
+
+.pg-wrap {
+  box-sizing: border-box;
+  //box-shadow: 0 0 20px black;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  @media screen and (min-width: 992px) {
+    min-width: 500px;
+    margin: 0 auto;
+    border-left: 10px solid #ebb300;
+    border-bottom: 10px solid #fff;
+    border-right: 10px solid #fff;
+  }
+}
+
+// .app-wrapper {
+//   width: 100%;
+//   height: 100%;
+//   margin: 0;
+//   padding: 0;
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: rgba(0, 0, 0, 0.4);
+//   }
+//   &--toyota {
+//     background-image: url(../../assets/imgs/bgd-toyota.jpg);
+//     background-position: center;
+//     &::after {
+//       background-color: rgba(0, 0, 0, 0.4);
+//     }
+//   }
+// }
+
+.header {
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.content {
+  border-radius: $border-radius;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  //width: 100%;
+  min-width: 320px;
+  @media screen and (min-width: 992px) {
+    min-width: 400px;
+    padding: 3rem;
+  }
+  
+  box-sizing: border-box;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  h3 {
+    margin: 0 0 0.75rem;
+    color: #fff;
+    // text-align: center;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+.helper-wrapper {
+  //margin-top: 0.5rem;
+  font-size: $f-size-small;
+  align-items: center;
+}
+
+.helper-links {
+  // display: flex;
+  // justify-content: flex-end;
+  text-align: right;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  > div {
+    display: block;
+    margin-bottom: .5rem;
+  }
+  a {
+    display: inline-block;
+    font-size: $f-size-small;
+  }
+}
+
+// FORM STYLES
+.form-field {
+  margin-bottom: 3rem;
+  position: relative;
+  width: 100%;
+  font-size: 1rem;
+  display: block;
+  > label {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: $f-size-small;
+    //position: absolute;
+    //top: 6px;
+    //left: 0;
+    //pointer-events: none;
+    cursor: text;
+    transition: all 250ms ease;
+  }
+  input:-internal-autofill-selected {
+    background: transparent;
+  }
+  > input {
+    box-sizing: border-box;
+    box-shadow: none;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    transition: border 250ms ease;
+    padding: 0.5rem 0;
+    display: block;
+    color: #fff;
+    margin-bottom: 0.125rem;
+    font-size: 1rem;
+    &:invalid {
+      outline:none;
+      box-shadow: none;
+    }
+    &:focus {
+      border-bottom-color: $yellow;
+      outline: none;
+      color: #fff;
+      //border-width: 2px;
+      // ~ label {
+      //   top: -14px;
+      //   font-size: $f-size-small;
+      //   color: $yellow;
+      // }
+    }
+  }
+}
+
+::-webkit-input-placeholder,
+:-ms-input-placeholder,
+::placeholder {
+  color: #fff;
+}
+
+.error-msg {
+  position: absolute;
+  left: 0;
+  padding-top: 0.5rem;
+}
+// .form-field {
+//   position: relative;
+//   display: inline-block;
+//   padding-top: 5px;
+//   overflow: hidden;
+//   font-size: 1rem;
+//   line-height: 1.5;
+//   margin-bottom: 1rem;
+//   width: 100%;
+//   > label {
+//     color: #fff;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     display: flex;
+//   }
+//   > input {
+//     box-sizing: border-box;
+//     background-color: transparent;
+//     border: none;
+//     margin: 0 0 0.5rem;
+//     border-bottom: 1px solid #fff;
+//     line-height: inherit;
+//     font-size: inherit;
+//     font-family: inherit;
+//     box-shadow: none;
+//     color: #fff;
+//     transition: border 250ms, box-shadow 250ms;
+//     width: 100%;
+//     + label {
+//       position: absolute;
+//       top: 0;
+//       left: 0;, 
+//       display: flex;
+//       border-color: rgba(255, 255, 255, 1);
+//       width: 100%;
+//       height: 100%;
+//       color: #fff;
+//       font-size: 75%;
+//       line-height: 15px;
+//       cursor: text;
+//       transition: color 250ms, font-size 250ms, line-height 250ms;
+//       &::before,
+//       &::after {
+//         content: "";
+//         display: block;
+//         box-sizing: border-box;
+//         margin-top: 6px;
+//         border-top: solid 1px;
+//         border-top-color: rgba(0, 0, 0, 0.6);
+//         min-width: 10px;
+//         height: 8px;
+//         pointer-events: none;
+//         box-shadow: inset 0 1px transparent;
+//         transition: border-color 0.2s, box-shadow 0.2s;
+//       }
+//       &::before {
+//         margin-right: 4px;
+//         border-left: solid 1px transparent;
+//         border-radius: 4px 0;
+//       }
+//       &::after {
+//         flex-grow: 1;
+//         margin-left: 4px;
+//         border-right: 1px solid transparent;
+//       }
+//     }
+//     &:focus {
+//       border-color: yellow;
+//       + label {
+//         color: yellow;
+//         &::before {
+
+//         }
+//       }
+//     }
+//   }
+// }
+
+.error-msg {
+  font-size: $f-size-small;
+  color: $red;
+}
+
+.back-login {
+  border-bottom: 1px dotted;
+  margin-bottom: 2.5rem !important;
+  font-size: 16px;
+  a {
+    color: #ffffff;
+    border-bottom: none;
+  }
+  &.reset-password {
+    text-align: right;
+    float: right;
+    font-size: $f-size-small;
+  }
+}
+
+.back-login:hover {
+  color: rgb(242, 205, 88);
+  cursor: pointer;
+}
+
+// .action {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+// .reset-password-button {
+//   margin-top: 2.5rem;
+// }
+
+// .reset-password {
+//   font-size: 16px;
+//   line-height: 24px;
+//   height: 24px;
+//   display: table-cell;
+//   vertical-align: middle;
+//   padding: 0px;
+//   margin: 0px;
+//   border-bottom: 1px dotted;
+//   color: #ffffff;
+// }
+// .reset-password:hover {
+//   color: rgb(242, 205, 88);
+//   cursor: pointer;
+//   padding: 0.75rem 1rem;
+//   border-radius: $border-radius;
+//   font-size: 1rem;
+//   font-family: $f-family;
+//   font-weight: 700;
+//   border: 0;
+//   line-height: 20px;
+//   transition: all 250ms ease;
+//   &--toyota {
+//     background-color: $toyota;
+//     color: #fff;
+//     &:hover {
+//       background-color: darken($toyota, 20%);
+//     }
+//   }
+// }
+
+.btn {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  font-family: $f-family;
+  font-weight: 700;
+  border: 0;
+  line-height: 20px;
+  transition: all 250ms ease;
+  &--toyota {
+    background-color: $toyota;
+    color: #fff;
+    &:hover {
+      background-color: darken($toyota, 20%);
+    }
+  }
+}
+
+.btn-primary {
+  background-color: $yellow;
+  color: #000;
+  // letter-spacing: 1px;
+  // text-transform: uppercase;
+  .content & {
+    width: 100%;
+  }
+  &:hover {
+    background-color: darken($yellow, 10%);
+  }
+}
+
+.btn-link {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 0 0 0.125rem;
+  display: inline-block;
+  color: #fff;
+  float: right;
+  text-decoration: none;
+  transition: border 300ms ease;
+  font-size: $f-size-small;
+  cursor: pointer;
+  .reset-password-form & {
+    padding-top: 0.5rem;
+  }
+  &:hover {
+    border-color: $yellow;
+    
+  }
+  &.reset-password {
+    //float: right;
+    padding-top: 0.5rem;
+  }
+}
+
+.tagline {
+  display: block;
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: $grey;
+  text-transform: uppercase;
+}
+
+// .form-description {
+  
+//   margin-block-start: 1em;
+//   margin-block-end: 1em;
+//   margin-inline-start: 0px;
+//   margin-inline-end: 0px;
+  
+//   font-size: 14px;
+//   margin-top: 2.5rem !important;
+// }
+
+// .reset-password-form,
+// .change-password-form,
+// .set-new-password-form {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+
+//   .ui.error.message {
+//     max-width: 500px;
+//   }
+// }
+
+.change-password-button {
+  margin-top: 2.5rem !important;
+}
+
+.error-msg {
+  color: $grey;
+  text-align: left;
+  font-style: italic;
+  &::before {
+    content: '* ';
+    color: $red;
+  }
+}
+.submitted-error-msg {
+  color: red;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+  font-size: $f-size-small;
+}
+
+
+/*
+My take on pure CSS material design inputs and drop-down
+Influenced heavily by: https://codepen.io/sevilayha/pen/IdGKH
+*/
+
+// $material-form-label: #000000;
+// $material-form-label-focus: #3f51b5;
+// $material-form-line: #000000;
+// $material-form-line-focus: $material-form-label-focus;
+// $material-form-input-text: $material-form-label;
+// $material-form-input-text-focus: $material-form-label-focus;
+// $material-form-field-invalid-foreground: #d50000;
+
+// $material-dropdown-hoverBackground: #e8eaf6;
+// $material-dropdown-selectedBackground: #9fa8da;
+// $material-labelOffset: 25px;
+// $material-textInputPaddingTopBottom: 10px;
+
+// .form-field {
+//   font-family: 'Roboto', sans-serif;
+//   font-size:14px;
+//   position:relative;
+//   display:block;
+//   color:$material-form-label;
+//   padding:$material-labelOffset 0 10px 0;
+//   &::after {
+//     content:"\00A0";
+//     display:block;
+//     color: $material-form-field-invalid-foreground;
+//     font-size:12px;
+//     padding-top:5px;
+//   }
+//   label {
+//     position:absolute;
+//     display:block;
+//     top: $material-labelOffset + $material-textInputPaddingTopBottom;
+//     left: 0;
+//     color: #fff;
+//     transition:0.2s ease all; 
+//     -moz-transition:0.2s ease all; 
+//     -webkit-transition:0.2s ease all;
+//     pointer-events:none;
+//     cursor:text;
+//   }
+//   input {
+//     padding:$material-textInputPaddingTopBottom 0 $material-textInputPaddingTopBottom 0;
+//     display:block;
+//     width:100%;
+//     border:none;
+//     background-color: transparent;
+//     font-size:14px;
+//     color: #fff;
+//     border-bottom:1px solid #fff;
+//     outline:none;
+
+//     &:invalid{
+//       outline:none;
+//       box-shadow: none;
+//     }
+//     &:focus {
+//       & ~ label {
+//         top: $material-labelOffset - ($material-textInputPaddingTopBottom + 5);
+//         font-size: $f-size-small;
+//       }
+//     }
+//     &:focus, &:valid {
+//       outline:none;
+//       color: $yellow;
+//       padding-bottom: $material-textInputPaddingTopBottom - 2;
+//       border-bottom-width: 3px;
+//       border-bottom-color: $yellow;
+
+//       & ~ label {
+//         color:$material-form-label-focus;
+//       }
+//     }
+//   }
+//   &.material-form-field-invalid {
+//     color: $material-form-field-invalid-foreground;
+//     &::after{
+//       content:attr(data-validationError);
+//     }
+//     input:focus ~ label{
+//       color: $material-form-field-invalid-foreground;
+//     }
+//   }
+// }
+
+
+// WEBKIT OVERWRITES
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0;
+  border-bottom: 1px solid #FFF;
+  -webkit-text-fill-color: #FFF;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+  font-size: 1rem;
+}
+
+
+.header {
+  margin-bottom: 2.5rem;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  > h2 {
+    margin: 0;
+  }
+}
+
+.section {
+  margin-bottom: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  h3 {
+    margin: 0 0 0.75rem;
+    color: #fff;
+    // text-align: center;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+.helper-links {
+  // display: flex;
+  // justify-content: flex-end;
+  text-align: right;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  > div {
+    display: block;
+    margin-bottom: .5rem;
+  }
+  a {
+    display: inline-block;
+    font-size: $f-size-small;
+  }
+}
